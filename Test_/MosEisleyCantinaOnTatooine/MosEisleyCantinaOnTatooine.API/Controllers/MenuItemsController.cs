@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
+using log4net.Repository;
 using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using MosEisleyCantinaOnTatooine.DTO;
+using MosEisleyCantinaOnTatooine.Service.Interface;
 
 namespace MosEisleyCantinaOnTatooine.API.Controllers
 {
@@ -12,36 +13,60 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
     [ApiController]
     public class MenuItemsController : ControllerBase
     {
-        // GET: api/<MenuItemsController>
+        private readonly IMenuItemsService _menuItemsService;
+        public MenuItemsController(IMenuItemsService menuItemsService)
+        {
+            _menuItemsService = menuItemsService ?? throw new ArgumentNullException(nameof(menuItemsService));
+        }
+
+        /// <summary>
+        /// Return all menu items in a list
+        /// </summary>
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("api/MenuItems/GetAllMenuItem")]
+        public async Task<IEnumerable<MenuItemsDTO>> GetAllMenuItem()
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                var result = await _menuItemsService.GetAllMenuItem();
+                return result.ToList();
+            }
+            catch (Exception ex)
+            {
+                return (IEnumerable<MenuItemsDTO>)BadRequest(ex.Message);
+            }
+        }
+        
+        [HttpGet]
+        [Route("api/MenuItems/GetMenuItemById")]
+        public async Task<MenuItemsDTO> GetMenuItemById(int Id)
+        {
+            var result = await _menuItemsService.GetMenuItemById(Id);
+            return (MenuItemsDTO)result;
         }
 
-        // GET api/<MenuItemsController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST api/<MenuItemsController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("api/MenuItems/AddMenuItem")]
+        public async Task<MenuItemsDTO> AddMenuItemById(MenuItemsDTO itemsDTO)
         {
+            var result = await _menuItemsService.AddMenuItem(itemsDTO);
+            return (MenuItemsDTO)result;
         }
 
-        // PUT api/<MenuItemsController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut]
+        [Route("api/MenuItems/UpdateMenuItemById")]
+        public async Task<MenuItemsDTO> UpdateMenuItemById(int Id, MenuItemsDTO itemsDTO)
         {
+            var result = await _menuItemsService.UpdateMenuItemById(Id, itemsDTO);
+            return (MenuItemsDTO)result;
         }
 
-        // DELETE api/<MenuItemsController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
+        [HttpDelete]
+        [Route("api/MenuItems/DeleteMenuItemById")]
+        public async Task<MenuItemsDTO> DeleteMenuItemById(int id)
         {
+            var result = await _menuItemsService.DeleteMenuItemById(id);
+            return (MenuItemsDTO)result;
         }
     }
 }

@@ -2,7 +2,6 @@ C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\bin\Debug
 C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.dll
 C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\bin\Debug\net5.0\ref\MosEisleyCantinaOnTatooine.DTO.dll
 C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.pdb
-C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.csproj.AssemblyReference.cache
 C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.GeneratedMSBuildEditorConfig.editorconfig
 C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.AssemblyInfoInputs.cache
 C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.DTO\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.AssemblyInfo.cs

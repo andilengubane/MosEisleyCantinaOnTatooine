@@ -1,16 +1,17 @@
+using log4net;
+using log4net.Config;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using MosEisleyCantinaOnTatooine.Persistence;
+using MosEisleyCantinaOnTatooine.Service;
+using MosEisleyCantinaOnTatooine.Service.Interface;
+using System.IO;
+using System.Reflection;
 
 namespace MosEisleyCantinaOnTatooine.API
 {
@@ -22,19 +23,21 @@ namespace MosEisleyCantinaOnTatooine.API
         }
 
         public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
+        
         public void ConfigureServices(IServiceCollection services)
         {
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MosEisleyCantinaOnTatooine.API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mos Eisley Cantina On Tatooine.API", Version = "v1" });
             });
-        }
+            services.AddDbContext<MosEisleyCantinaOnTatooineDbContext>(options => options.UseSqlServer("Data Source=(localdb)/MSSQLLocalDB;Initial Catalog=MosEisleyCantinaOnTatooine;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
+            services.AddScoped<IMenuItemsService, MenuItemsService>();
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            services.AddScoped<IMenuItemsService, MenuItemsService>();
+        }
+        
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

@@ -5,22 +5,23 @@ using System.Threading.Tasks;
 using System.Collections.Generic;
 using MosEisleyCantinaOnTatooine.DTO;
 using MosEisleyCantinaOnTatooine.Persistence;
+using MosEisleyCantinaOnTatooine.Service.Interface;
 
 namespace MosEisleyCantinaOnTatooine.Service
 {
-   
-    public class MenuItemsService
+
+    public class MenuItemsService : IMenuItemsService
     {
         private readonly MosEisleyCantinaOnTatooineDbContext _context = new MosEisleyCantinaOnTatooineDbContext();
         public MenuItemsService(MosEisleyCantinaOnTatooineDbContext mosEisleyCantinaOnTatooineDb)
         {
-            mosEisleyCantinaOnTatooineDb = _context;
+            _context = mosEisleyCantinaOnTatooineDb;
         }
 
         public async Task<IEnumerable<MenuItemsDTO>> GetAllMenuItem()
         {
-            var result = _context.MenuItems.ToList();
-            return result;
+            var result =  _context.MenuItems.ToList();
+            return  result.ToList();
         }
 
         public async Task<MenuItemsDTO> GetMenuItemById(int Id)
@@ -29,7 +30,7 @@ namespace MosEisleyCantinaOnTatooine.Service
             return result;
         }
 
-        public async Task<MenuItemsDTO> AddMenuItemById(MenuItemsDTO itemsDTO)
+        public async Task<MenuItemsDTO> AddMenuItem(MenuItemsDTO itemsDTO)
         {
             try
             {
@@ -42,15 +43,15 @@ namespace MosEisleyCantinaOnTatooine.Service
                 };
                 _context.Add(data);
                 _context.SaveChanges();
-            } 
-            catch (Exception ex) 
+            }
+            catch (Exception ex)
             {
                 return null;
             }
             return null;
         }
 
-        public async Task<MenuItemsDTO> UpdateMenuItemById(MenuItemsDTO itemsDTO)
+        public async Task<MenuItemsDTO> UpdateMenuItemById(int Id, MenuItemsDTO itemsDTO)
         {
             var result = _context.MenuItems.Where(x => x.Id == itemsDTO.Id).FirstOrDefault();
             try
@@ -59,7 +60,7 @@ namespace MosEisleyCantinaOnTatooine.Service
                 result.Description = itemsDTO.Description;
                 result.Price = itemsDTO.Price;
                 result.Image_Url = itemsDTO.Image_Url;
-                
+
                 _context.Add(result);
                 _context.SaveChanges();
             }
@@ -70,11 +71,11 @@ namespace MosEisleyCantinaOnTatooine.Service
             return null;
         }
 
-        public async Task<MenuItemsDTO> DeleteMenuItemById(MenuItemsDTO itemsDTO)
+        public async Task<MenuItemsDTO> DeleteMenuItemById(int Id)
         {
             try
             {
-                var result = _context.MenuItems.Where(x => x.Id == itemsDTO.Id).FirstOrDefault();
+                var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
                 _context.Remove(result);
                 _context.SaveChanges();
             }
