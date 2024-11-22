@@ -26,16 +26,13 @@ namespace MosEisleyCantinaOnTatooine.API
         
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Mos Eisley Cantina On Tatooine.API", Version = "v1" });
             });
-            services.AddDbContext<MosEisleyCantinaOnTatooineDbContext>(options => options.UseSqlServer("Data Source=(localdb)/MSSQLLocalDB;Initial Catalog=MosEisleyCantinaOnTatooine;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"));
             services.AddScoped<IMenuItemsService, MenuItemsService>();
-
-            services.AddScoped<IMenuItemsService, MenuItemsService>();
+            services.AddDbContext<DbContextMenuItems>();
         }
         
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

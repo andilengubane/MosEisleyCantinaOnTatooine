@@ -24,7 +24,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
         /// </summary>
         [HttpGet]
         [Route("api/MenuItems/GetAllMenuItem")]
-        public async Task<IEnumerable<MenuItemsDTO>> GetAllMenuItem()
+        public async Task<IEnumerable<MenuItems>> GetAllMenuItem()
         {
             try
             {
@@ -33,40 +33,40 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
-                return (IEnumerable<MenuItemsDTO>)BadRequest(ex.Message);
+                return (IEnumerable<MenuItems>)BadRequest(ex.Message);
             }
         }
         
         [HttpGet]
         [Route("api/MenuItems/GetMenuItemById")]
-        public async Task<MenuItemsDTO> GetMenuItemById(int Id)
+        public async Task<MenuItems> GetMenuItemById(int Id)
         {
             var result = await _menuItemsService.GetMenuItemById(Id);
-            return (MenuItemsDTO)result;
+            return (MenuItems)result;
         }
 
         [HttpPost]
         [Route("api/MenuItems/AddMenuItem")]
-        public async Task<MenuItemsDTO> AddMenuItemById(MenuItemsDTO itemsDTO)
+        public async Task<MenuItems> AddMenuItemById(MenuItems itemsDTO)
         {
             var result = await _menuItemsService.AddMenuItem(itemsDTO);
-            return (MenuItemsDTO)result;
+            return (MenuItems)result;
         }
 
         [HttpPut]
         [Route("api/MenuItems/UpdateMenuItemById")]
-        public async Task<MenuItemsDTO> UpdateMenuItemById(int Id, MenuItemsDTO itemsDTO)
+        public async Task<MenuItems> UpdateMenuItemById(int Id, MenuItems itemsDTO)
         {
             var result = await _menuItemsService.UpdateMenuItemById(Id, itemsDTO);
-            return (MenuItemsDTO)result;
+            return (MenuItems)result;
         }
 
         [HttpDelete]
         [Route("api/MenuItems/DeleteMenuItemById")]
-        public async Task<MenuItemsDTO> DeleteMenuItemById(int id)
+        public async Task<MenuItems> DeleteMenuItemById(int id)
         {
             var result = await _menuItemsService.DeleteMenuItemById(id);
-            return (MenuItemsDTO)result;
+            return (MenuItems)result;
         }
     }
 }
