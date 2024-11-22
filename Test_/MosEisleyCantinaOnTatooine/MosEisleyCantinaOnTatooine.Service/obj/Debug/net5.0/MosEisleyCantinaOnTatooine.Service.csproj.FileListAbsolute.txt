@@ -1,0 +1,17 @@
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.deps.json
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.dll
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\ref\MosEisleyCantinaOnTatooine.Service.dll
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.pdb
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.csproj.AssemblyReference.cache
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.AssemblyInfoInputs.cache
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.AssemblyInfo.cs
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.csproj.CoreCompileInputs.cache
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.dll
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\ref\MosEisleyCantinaOnTatooine.Service.dll
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.pdb
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.dll
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.Persistence.dll
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.Persistence.pdb
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\bin\Debug\net5.0\MosEisleyCantinaOnTatooine.DTO.pdb
+C:\Git\Test_\MosEisleyCantinaOnTatooine\MosEisleyCantinaOnTatooine.Service\obj\Debug\net5.0\MosEisleyCantinaOnTatooine.Service.csproj.CopyComplete
