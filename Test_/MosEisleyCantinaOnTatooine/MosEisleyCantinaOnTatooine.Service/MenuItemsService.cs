@@ -27,7 +27,7 @@ namespace MosEisleyCantinaOnTatooine.Service
             }
             catch
             {
-                throw new ApplicationException("Failred server error");
+                throw new ApplicationException("Failed server error");
             }
         }
 
@@ -40,7 +40,7 @@ namespace MosEisleyCantinaOnTatooine.Service
             }
             catch
             {
-                throw new ApplicationException("Failred server error");
+                throw new ApplicationException("Failed server error");
             }
         }
 
@@ -48,6 +48,11 @@ namespace MosEisleyCantinaOnTatooine.Service
         {
             try
             {
+                if (string.IsNullOrEmpty(itemsDTO.Name) || string.IsNullOrEmpty(itemsDTO.Description))
+                {
+                    throw new ArgumentException("Name and Description are required.");
+                }
+
                 var data = new MenuItems()
                 {
                     Name = itemsDTO.Name,
@@ -61,42 +66,54 @@ namespace MosEisleyCantinaOnTatooine.Service
                 await _context.SaveChangesAsync();
                 return data;
             }
-            catch {
-                throw new ApplicationException("Failred server error");
-            }
-            
-        }
-
-        public async Task<MenuItems> UpdateMenuItemById(int Id, MenuItems itemsDTO)
-        {
-            try
+            catch (ArgumentException ex)
             {
-                var result = _context.MenuItems.Where(x => x.Id == itemsDTO.Id).FirstOrDefault();
-                result.Name = itemsDTO.Name;
-                result.Description = itemsDTO.Description;
-                result.Price = itemsDTO.Price;
-                result.Image_Url = itemsDTO.Image_Url;
-
-                _context.Add(result);
-                _context.SaveChanges();
-                return result;
-            }
-            catch {
-                throw new ApplicationException("Failred server error");
+                throw new ApplicationException("Invalid input data", ex);
             }
         }
+
+         public async Task<MenuItems> UpdateMenuItemById(int Id, MenuItems itemsDTO)
+         {
+             try
+             {
+                 var result = _context.MenuItems.FirstOrDefault(x => x.Id == Id);
+                 if (result == null)
+                 {
+                     throw new ApplicationException("Menu item not found");
+                 }
+
+                 result.Name = itemsDTO.Name;
+                 result.Description = itemsDTO.Description;
+                 result.Price = itemsDTO.Price;
+                 result.Image_Url = itemsDTO.Image_Url;
+
+                 _context.Update(result);
+                 await _context.SaveChangesAsync();
+                 return result;
+             }
+             catch (Exception ex)
+             {
+                 throw new ApplicationException("Failed server error", ex);
+             }
+         }
 
         public async Task<MenuItems> DeleteMenuItemById(int Id)
         {
             try
             {
-                var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
+                var result =  _context.MenuItems.FirstOrDefault(x => x.Id == Id);
+                if (result == null)
+                {
+                    throw new ApplicationException("Menu item not found");
+                }
+
                 _context.Remove(result);
-                _context.SaveChanges();
+                await _context.SaveChangesAsync();
                 return result;
             }
-            catch {
-                throw new ApplicationException("Failred server error");
+            catch (Exception ex)
+            {
+                throw new ApplicationException("Failed server error", ex);
             }
         }
     }
