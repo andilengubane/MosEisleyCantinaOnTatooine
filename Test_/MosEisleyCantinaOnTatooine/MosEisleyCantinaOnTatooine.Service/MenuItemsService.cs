@@ -20,51 +20,84 @@ namespace MosEisleyCantinaOnTatooine.Service
 
         public async Task<IEnumerable<MenuItems>> GetAllMenuItem()
         {
-            var result =  _context.MenuItems.ToList();
-            return  result.ToList();
+            try
+            {
+                var result = _context.MenuItems.ToList();
+                return result.ToList();
+            }
+            catch
+            {
+                throw new ApplicationException("Failred server error");
+            }
         }
 
         public async Task<MenuItems> GetMenuItemById(int Id)
         {
-            var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
-            return result;
+            try
+            {
+                var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
+                return result;
+            }
+            catch
+            {
+                throw new ApplicationException("Failred server error");
+            }
         }
 
         public async Task<MenuItems> AddMenuItem(MenuItems itemsDTO)
         {
-            var data = new MenuItems()
+            try
             {
-                Name = itemsDTO.Name,
-                Description = itemsDTO.Description,
-                Price = itemsDTO.Price,
-                Image_Url = itemsDTO.Image_Url,
-                CreatedDate = DateTime.Now
-            };
+                var data = new MenuItems()
+                {
+                    Name = itemsDTO.Name,
+                    Description = itemsDTO.Description,
+                    Price = itemsDTO.Price,
+                    Image_Url = itemsDTO.Image_Url,
+                    CreatedDate = DateTime.Now
+                };
 
-            _context.Add(data);
-            await _context.SaveChangesAsync();
-            return data;
+                _context.Add(data);
+                await _context.SaveChangesAsync();
+                return data;
+            }
+            catch {
+                throw new ApplicationException("Failred server error");
+            }
+            
         }
 
         public async Task<MenuItems> UpdateMenuItemById(int Id, MenuItems itemsDTO)
         {
-            var result = _context.MenuItems.Where(x => x.Id == itemsDTO.Id).FirstOrDefault();
-            result.Name = itemsDTO.Name;
-            result.Description = itemsDTO.Description;
-            result.Price = itemsDTO.Price;
-            result.Image_Url = itemsDTO.Image_Url;
+            try
+            {
+                var result = _context.MenuItems.Where(x => x.Id == itemsDTO.Id).FirstOrDefault();
+                result.Name = itemsDTO.Name;
+                result.Description = itemsDTO.Description;
+                result.Price = itemsDTO.Price;
+                result.Image_Url = itemsDTO.Image_Url;
 
-            _context.Add(result);
-            _context.SaveChanges();
-            return result;
+                _context.Add(result);
+                _context.SaveChanges();
+                return result;
+            }
+            catch {
+                throw new ApplicationException("Failred server error");
+            }
         }
 
         public async Task<MenuItems> DeleteMenuItemById(int Id)
         {
-            var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
-            _context.Remove(result);
-            _context.SaveChanges();
-            return result;
+            try
+            {
+                var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
+                _context.Remove(result);
+                _context.SaveChanges();
+                return result;
+            }
+            catch {
+                throw new ApplicationException("Failred server error");
+            }
         }
     }
 }
