@@ -2,18 +2,6 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "log4net/3.0.3": {
-        "type": "package",
-        "dependencies": {
-          "System.Configuration.ConfigurationManager": "4.5.0"
-        },
-        "compile": {
-          "lib/netstandard2.0/log4net.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.0/log4net.dll": {}
-        }
-      },
       "Microsoft.CSharp/4.5.0": {
         "type": "package",
         "compile": {
@@ -671,7 +659,7 @@
           "System.Security.Permissions": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Configuration.ConfigurationManager.dll": {}
@@ -1243,7 +1231,7 @@
           "System.Security.Principal.Windows": "4.7.0"
         },
         "compile": {
-          "ref/netstandard2.0/System.Security.AccessControl.dll": {}
+          "ref/netstandard2.0/_._": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.AccessControl.dll": {}
@@ -1310,7 +1298,7 @@
           "System.Windows.Extensions": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/System.Security.Permissions.dll": {}
+          "ref/netcoreapp3.0/_._": {}
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Security.Permissions.dll": {}
@@ -1319,7 +1307,7 @@
       "System.Security.Principal.Windows/4.7.0": {
         "type": "package",
         "compile": {
-          "ref/netcoreapp3.0/System.Security.Principal.Windows.dll": {}
+          "ref/netcoreapp3.0/_._": {}
         },
         "runtime": {
           "lib/netstandard2.0/System.Security.Principal.Windows.dll": {}
@@ -1458,7 +1446,7 @@
           "System.Drawing.Common": "4.7.0"
         },
         "compile": {
-          "ref/netcoreapp3.0/System.Windows.Extensions.dll": {}
+          "ref/netcoreapp3.0/_._": {}
         },
         "runtime": {
           "lib/netcoreapp3.0/System.Windows.Extensions.dll": {}
@@ -1609,25 +1597,6 @@
     }
   },
   "libraries": {
-    "log4net/3.0.3": {
-      "sha512": "LAZBO0rHo4DM56GIt124NaXKo6LVZcfiuWVgODdUnhPNMzTOlRJWOEIXo8zVNLm426B+coDc4ocfTsTw7R7Zeg==",
-      "type": "package",
-      "path": "log4net/3.0.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "README.md",
-        "lib/net462/log4net.dll",
-        "lib/net462/log4net.pdb",
-        "lib/net462/log4net.xml",
-        "lib/netstandard2.0/log4net.dll",
-        "lib/netstandard2.0/log4net.pdb",
-        "lib/netstandard2.0/log4net.xml",
-        "log4net.3.0.3.nupkg.sha512",
-        "log4net.nuspec",
-        "package-icon.png"
-      ]
-    },
     "Microsoft.CSharp/4.5.0": {
       "sha512": "kaj6Wb4qoMuH3HySFJhxwQfe8R/sJsNJnANrvv8WdFPMoNbKY5htfNscv+LHCu5ipz+49m2e+WQXpLXr9XYemQ==",
       "type": "package",
@@ -5948,8 +5917,7 @@
     "net5.0": [
       "MosEisleyCantinaOnTatooine.DTO >= 1.0.0",
       "MosEisleyCantinaOnTatooine.Service >= 1.0.0",
-      "Swashbuckle.AspNetCore >= 5.6.3",
-      "log4net >= 3.0.3"
+      "Swashbuckle.AspNetCore >= 5.6.3"
     ]
   },
   "packageFolders": {
@@ -6010,10 +5978,6 @@
           "Swashbuckle.AspNetCore": {
             "target": "Package",
             "version": "[5.6.3, )"
-          },
-          "log4net": {
-            "target": "Package",
-            "version": "[3.0.3, )"
           }
         },
         "imports": [

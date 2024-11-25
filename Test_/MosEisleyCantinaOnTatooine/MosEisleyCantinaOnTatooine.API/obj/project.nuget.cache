@@ -1,10 +1,9 @@
 {
   "version": 2,
-  "dgSpecHash": "956esCeAtRJVygOPM34UloQPH5VMKvz278xaZDUk+8A40+mi7+3ghta7HmzJ9d+ix+JyrMA41Sq9NAAGoCQe8Q==",
+  "dgSpecHash": "LCkEDY58Xq/AVqWG/Sh3MgfrZCBNLZBc2PLxtWeGXVSQOpNfNmNA8sKuDDMR4IXrgSl32C9IRFPWeMPGADPW0g==",
   "success": true,
   "projectFilePath": "C:\\Git\\Test_\\MosEisleyCantinaOnTatooine\\MosEisleyCantinaOnTatooine.API\\MosEisleyCantinaOnTatooine.API.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\AnNgubane\\.nuget\\packages\\log4net\\3.0.3\\log4net.3.0.3.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\AnNgubane\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",
     "C:\\Users\\AnNgubane\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.0.1\\microsoft.data.sqlclient.sni.runtime.2.0.1.nupkg.sha512",

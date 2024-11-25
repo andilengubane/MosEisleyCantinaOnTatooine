@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Linq;
-using log4net.Repository;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using MosEisleyCantinaOnTatooine.DTO;
 using MosEisleyCantinaOnTatooine.Service.Interface;
+using Microsoft.Extensions.Logging;
 
 namespace MosEisleyCantinaOnTatooine.API.Controllers
 {
@@ -14,14 +14,13 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
     public class MenuItemsController : ControllerBase
     {
         private readonly IMenuItemsService _menuItemsService;
-        public MenuItemsController(IMenuItemsService menuItemsService)
+        private readonly ILogger _logger;
+        public MenuItemsController(IMenuItemsService menuItemsService, ILogger logger)
         {
             _menuItemsService = menuItemsService ?? throw new ArgumentNullException(nameof(menuItemsService));
+            _logger = logger;
         }
 
-        /// <summary>
-        /// Return all menu items in a list
-        /// </summary>
         [HttpGet]
         [Route("api/MenuItems/GetAllMenuItem")]
         public async Task<ActionResult> GetAllMenuItem()
@@ -33,6 +32,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError("Server Error",ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -48,6 +48,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -63,6 +64,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -78,6 +80,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -93,6 +96,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
+                _logger.LogError("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
