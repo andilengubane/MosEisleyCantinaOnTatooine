@@ -24,49 +24,77 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
         /// </summary>
         [HttpGet]
         [Route("api/MenuItems/GetAllMenuItem")]
-        public async Task<IEnumerable<MenuItems>> GetAllMenuItem()
+        public async Task<IEnumerable<ActionResult>> GetAllMenuItem()
         {
             try
             {
                 var result = await _menuItemsService.GetAllMenuItem();
-                return result.ToList();
+                return (IEnumerable<ActionResult>)Ok(result.ToList());
             }
             catch (Exception ex)
             {
-                return (IEnumerable<MenuItems>)BadRequest(ex.Message);
+                return (IEnumerable<ActionResult>)BadRequest(ex.Message);
             }
         }
         
         [HttpGet]
         [Route("api/MenuItems/GetMenuItemById")]
-        public async Task<MenuItems> GetMenuItemById(int Id)
+        public async Task<ActionResult> GetMenuItemById(int Id)
         {
-            var result = await _menuItemsService.GetMenuItemById(Id);
-            return (MenuItems)result;
+            try
+            {
+                var result = await _menuItemsService.GetMenuItemById(Id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPost]
         [Route("api/MenuItems/AddMenuItem")]
-        public async Task<MenuItems> AddMenuItemById(MenuItems itemsDTO)
+        public async Task<ActionResult> AddMenuItemById(MenuItems itemsDTO)
         {
-            var result = await _menuItemsService.AddMenuItem(itemsDTO);
-            return (MenuItems)result;
+            try
+            {
+                var result = await _menuItemsService.AddMenuItem(itemsDTO);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
         [Route("api/MenuItems/UpdateMenuItemById")]
-        public async Task<MenuItems> UpdateMenuItemById(int Id, MenuItems itemsDTO)
+        public async Task<ActionResult> UpdateMenuItemById(int Id, MenuItems itemsDTO)
         {
-            var result = await _menuItemsService.UpdateMenuItemById(Id, itemsDTO);
-            return (MenuItems)result;
+            try
+            {
+                var result = await _menuItemsService.UpdateMenuItemById(Id, itemsDTO);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpDelete]
         [Route("api/MenuItems/DeleteMenuItemById")]
-        public async Task<MenuItems> DeleteMenuItemById(int id)
+        public async Task<ActionResult> DeleteMenuItemById(int id)
         {
-            var result = await _menuItemsService.DeleteMenuItemById(id);
-            return (MenuItems)result;
+            try
+            {
+                var result = await _menuItemsService.DeleteMenuItemById(id);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
