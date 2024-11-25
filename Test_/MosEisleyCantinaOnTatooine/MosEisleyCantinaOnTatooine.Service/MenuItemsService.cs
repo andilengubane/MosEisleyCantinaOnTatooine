@@ -35,12 +35,16 @@ namespace MosEisleyCantinaOnTatooine.Service
         {
             try
             {
-                var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
+                var result = _context.MenuItems.FirstOrDefault(x => x.Id == Id);
+                if (result == null)
+                {
+                    throw new ApplicationException("Menu item not found");
+                }
                 return result;
             }
-            catch
+            catch (Exception ex)
             {
-                throw new ApplicationException("Failed server error");
+                throw new ApplicationException("Failed server error", ex);
             }
         }
 
