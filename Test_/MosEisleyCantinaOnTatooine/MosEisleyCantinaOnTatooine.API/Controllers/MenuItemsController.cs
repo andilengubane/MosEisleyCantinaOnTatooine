@@ -32,7 +32,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Server Error",ex.Message);
+                _logger.LogInformation("Server Error",ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -48,7 +48,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Server Error", ex.Message);
+                _logger.LogInformation("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -64,7 +64,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Server Error", ex.Message);
+                _logger.LogInformation("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -80,7 +80,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Server Error", ex.Message);
+                _logger.LogInformation("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
@@ -96,7 +96,7 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError("Server Error", ex.Message);
+                _logger.LogInformation("Server Error", ex.Message);
                 return BadRequest(ex.Message);
             }
         }
