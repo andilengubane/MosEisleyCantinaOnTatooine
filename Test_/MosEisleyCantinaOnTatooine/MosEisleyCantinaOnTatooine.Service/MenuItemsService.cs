@@ -32,61 +32,39 @@ namespace MosEisleyCantinaOnTatooine.Service
 
         public async Task<MenuItems> AddMenuItem(MenuItems itemsDTO)
         {
-            try
+            var data = new MenuItems()
             {
-                var data = new MenuItems()
-                {
-                    Name = itemsDTO.Name,
-                    Description = itemsDTO.Description,
-                    Price = itemsDTO.Price,
-                    Image_Url = itemsDTO.Image_Url,
-                    CreatedDate = DateTime.Now
-                };
+                Name = itemsDTO.Name,
+                Description = itemsDTO.Description,
+                Price = itemsDTO.Price,
+                Image_Url = itemsDTO.Image_Url,
+                CreatedDate = DateTime.Now
+            };
 
-                _context.Add(data);
-                await _context.SaveChangesAsync();
-
-                return new MenuItems() { Description = "Record added successful." }; 
-            }
-            catch (Exception ex)
-            {
-                return new MenuItems(){ Description = "An error occurred while adding the menu item."};
-            }
+            _context.Add(data);
+            await _context.SaveChangesAsync();
+            return data;
         }
 
         public async Task<MenuItems> UpdateMenuItemById(int Id, MenuItems itemsDTO)
         {
             var result = _context.MenuItems.Where(x => x.Id == itemsDTO.Id).FirstOrDefault();
-            try
-            {
-                result.Name = itemsDTO.Name;
-                result.Description = itemsDTO.Description;
-                result.Price = itemsDTO.Price;
-                result.Image_Url = itemsDTO.Image_Url;
+            result.Name = itemsDTO.Name;
+            result.Description = itemsDTO.Description;
+            result.Price = itemsDTO.Price;
+            result.Image_Url = itemsDTO.Image_Url;
 
-                _context.Add(result);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            return null;
+            _context.Add(result);
+            _context.SaveChanges();
+            return result;
         }
 
         public async Task<MenuItems> DeleteMenuItemById(int Id)
         {
-            try
-            {
-                var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
-                _context.Remove(result);
-                _context.SaveChanges();
-            }
-            catch (Exception ex)
-            {
-                return null;
-            }
-            return null;
+            var result = _context.MenuItems.Where(x => x.Id == Id).FirstOrDefault();
+            _context.Remove(result);
+            _context.SaveChanges();
+            return result;
         }
     }
 }

@@ -24,16 +24,16 @@ namespace MosEisleyCantinaOnTatooine.API.Controllers
         /// </summary>
         [HttpGet]
         [Route("api/MenuItems/GetAllMenuItem")]
-        public async Task<IEnumerable<ActionResult>> GetAllMenuItem()
+        public async Task<ActionResult> GetAllMenuItem()
         {
             try
             {
                 var result = await _menuItemsService.GetAllMenuItem();
-                return (IEnumerable<ActionResult>)Ok(result.ToList());
+                return Ok(result.ToList());
             }
             catch (Exception ex)
             {
-                return (IEnumerable<ActionResult>)BadRequest(ex.Message);
+                return BadRequest(ex.Message);
             }
         }
         
